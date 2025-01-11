@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $id = trim($_POST["butdel"]);
   
-            $sql = 'DELETE FROM farm_2021_order WHERE id = ?';
+            $sql = 'UPDATE farm_2021_order SET farm_2021_order_status = IF(farm_2021_order_status ="Pending", "Complete", "Pending") WHERE id = ?';
 
             if ($stmt = mysqli_prepare($link, $sql)) 
             {
@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
                 if (mysqli_stmt_execute($stmt)) 
                 {                    
-                    $_SESSION["delete"] = "success";
+                    $_SESSION["change"] = "success";
                     echo"<script> location.replace('vieworder.php') </script>";
                 } 
                 else 
                 {
-                    $_SESSION["delete"] = "failed";
+                    $_SESSION["change"] = "failed";
                     echo"<script> location.replace('vieworder.php') </script>";
                 }
             }

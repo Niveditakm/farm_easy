@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     $id = trim($_POST["butdel"]);
   
-            $sql = 'DELETE FROM farm_2021_order WHERE id = ?';
+            $sql = 'DELETE FROM farm_2021_product WHERE id = ?';
 
             if ($stmt = mysqli_prepare($link, $sql)) 
             {
@@ -17,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 if (mysqli_stmt_execute($stmt)) 
                 {                    
                     $_SESSION["delete"] = "success";
-                    echo"<script> location.replace('vieworder.php') </script>";
+                    echo"<script> location.replace('viewproduct.php') </script>";
                 } 
                 else 
                 {
                     $_SESSION["delete"] = "failed";
-                    echo"<script> location.replace('vieworder.php') </script>";
+                    echo"<script> location.replace('viewproduct.php') </script>";
                 }
             }
         mysqli_stmt_close($stmt);

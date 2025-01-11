@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-require "config/database.php";
+require "../config/database.php";
 
-if(isset($_SESSION["user"])) 
+if(isset($_SESSION["farmer"])) 
 {
-    echo "<script> location.replace('cart.php') </script>";
+    echo "<script> location.replace('addproduct.php') </script>";
 }
 ?>
 <!doctype html>
@@ -17,14 +17,14 @@ if(isset($_SESSION["user"]))
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-    <title>User Register</title>
+    <title>Farmer Register</title>
 
     <style>
         .bg-image {
-            background: url("images/bg.jpg");
+            background: url("../images/bg.jpg");
             /* background-blend-mode: screen; */
             background-size: cover;
             /* background-color: darkgray; */
@@ -50,16 +50,13 @@ if(isset($_SESSION["user"]))
                 <div class="offcanvas-body">
                     <ul class="navbar-nav text-center lead fw-bold">
                         <li class="nav-item">
-                            <a class="nav-link w-75 mx-auto" href="index.php">Home</a>
+                            <a class="nav-link w-75 mx-auto" aria-current="page" href="../index.php">User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link w-75 mx-auto" aria-current="page" href="farmer/index.php">Farmer</a>
+                            <a class="nav-link w-75 mx-auto" aria-current="page" href="../admin/index.php">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link w-75 mx-auto" aria-current="page" href="admin/index.php">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link w-75 mx-auto" href="login.php">Login</a>
+                            <a class="nav-link w-75 mx-auto" href="index.php">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active bg-success text-light w-75 mx-auto" href="index.php">Register</a>
@@ -96,8 +93,8 @@ if(isset($_SESSION["user"]))
             <div class="card-header bg-success border border-success">
             </div>
             <div class="card-body my-3">
-                <h5 class="card-title text-uppercase lead mb-4">User Register</h5>
-                <form id="register" method="post" action="userregister.php">
+                <h5 class="card-title text-uppercase lead mb-4">Farmer Register</h5>
+                <form id="register" method="post" action="farmerregister.php">
                     <div class="row justify-content-center">
 
                         <div class="row justify-content-center">
@@ -169,8 +166,8 @@ if(isset($_SESSION["user"]))
     </div>
 
 
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
 
     <script>
   $(function()
